@@ -29,6 +29,12 @@ public class InteractionManager : MonoBehaviour
             GameObject objectHitByRayCast = hit.transform.gameObject;
 
             if(objectHitByRayCast.GetComponent<Weapon>() && objectHitByRayCast.GetComponent<Weapon>().isActiveWeapon == false) {
+                //Disable the outline of the previous weapon
+                if (hoveredWeapon)
+                {
+                    hoveredWeapon.GetComponent<Outline>().enabled = false;
+                }
+
                 hoveredWeapon = objectHitByRayCast.GetComponent<Weapon>();
                 hoveredWeapon.GetComponent<Outline>().enabled = true;
 
@@ -49,6 +55,13 @@ public class InteractionManager : MonoBehaviour
             // AmmoCrate
             if (objectHitByRayCast.GetComponent<AmmoCrate>())
             {
+
+                //Disable the outline of the previous weapon
+                if (hoveredAmmoCrate)
+                {
+                    hoveredAmmoCrate.GetComponent<Outline>().enabled = false;
+                }
+
                 hoveredAmmoCrate = objectHitByRayCast.GetComponent<AmmoCrate>();
                 hoveredAmmoCrate.GetComponent<Outline>().enabled = true;
 

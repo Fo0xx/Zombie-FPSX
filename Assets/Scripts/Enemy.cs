@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     private NavMeshAgent navAgent;
 
+    public bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +35,16 @@ public class Enemy : MonoBehaviour
             {
                 animator.SetTrigger("DIE2");
             }
+
+            isDead = true;
+
+            SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieDeath);
         } 
         else
         {
             animator.SetTrigger("DAMAGE");
+
+            SoundManager.Instance.zombieChannel2.PlayOneShot(SoundManager.Instance.zombieHurt);
         }
     }
 
@@ -49,7 +57,7 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, 21f);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, 18f);
+        Gizmos.DrawWireSphere(transform.position, 80f);
     }
 
 }

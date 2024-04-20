@@ -16,6 +16,21 @@ public class SoundManager : MonoBehaviour
     public AudioSource reloadingSoundAK47;
     public AudioSource emptyMagazineSoundGlock;
 
+    public AudioClip zombieWalking;
+    public AudioClip zombieChase;
+    public AudioClip zombieAttack;
+    public AudioClip zombieHurt;
+    public AudioClip zombieDeath;
+
+    public AudioSource zombieChannel;
+    public AudioSource zombieChannel2;
+
+    public AudioSource playerChannel;
+    public AudioClip playerHurt;
+    public AudioClip playerDeath;
+
+    public AudioClip gameOverSound;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
